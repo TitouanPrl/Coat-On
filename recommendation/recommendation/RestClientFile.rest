@@ -1,0 +1,5 @@
+### Get an activity recommendation
+GET http://localhost:8085/api/recommendation/activity?lat=15&long=15&range=1500&start=2024-05-12 12:00:00&end=2024-05-12 14:00:00
+
+### Get a clothing recommendation
+GET http://localhost:8085/api/recommendation/clothing/current?lat=15&long=15&userId=1
