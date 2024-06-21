@@ -1,0 +1,163 @@
+### --- --- ENDPOINTS THROUGH GATEWAY --- --- ###
+
+
+### --- GET endpoints --- ###
+
+### Get all clothing of user(ID=1)
+GET http://localhost:8080/api/user/1/clothing
+
+### Get all clothing of user(ID=1) with WARM temperature tag
+GET http://localhost:8080/api/user/1/clothing?temperature=WARM
+### Get all clothing of user(ID=1) with LIGHT_RAIN precipitation tag
+GET http://localhost:8080/api/user/1/clothing?precipitationProtection=LIGHT_RAIN
+### Get all clothing of user(ID=1) with NORMAL water resistance tag
+GET http://localhost:8080/api/user/1/clothing?waterResistance=NORMAL
+### Get all clothing of user(ID=1) with STORMY wind resistance tag
+GET http://localhost:8080/api/user/1/clothing?windResistance=STORMY
+### Get all clothing of user(ID=1) with TORSO_INNER body section tag
+GET http://localhost:8080/api/user/1/clothing?bodySection=TORSO_INNER
+### Get all clothing of user(ID=1) with COLD temperature & LIGHT_RAIN precipitation tag
+GET http://localhost:8080/api/user/1/clothing?temperature=COLD&precipitationProtection=LIGHT_RAIN
+### Get all clothing of user(ID=1) with non-existant tag value (Bad request)
+GET http://localhost:8080/api/user/1/clothing?temperature=INSANE_IN_THE_MEMBRANE
+### - NB! Check io.coaton.clothing.model.ClothingTags for all possible tags and values
+
+### Get clothing(ID=1) of user (ID=1)
+GET http://localhost:8080/api/user/1/clothing/1
+
+
+
+### --- POST endpoints --- ###
+
+### Create new clothing piece tied to user(ID=1)
+POST  http://localhost:8080/api/user/1/clothing  HTTP/1.1
+content-type: application/json
+
+{
+  "name": "Fur Coat",
+  "type": "JACKET",
+  "usable": "true",
+  "tags": {
+    "temperature" : "COLD",
+    "precipitationProtection" : "SNOWFALL",
+    "waterResistance" : "NORMAL",
+    "windResistance" : "STORMY",
+    "bodySection": "TORSO_OUTER"
+  }
+}
+
+
+
+### --- PUT endpoints --- ###
+
+### Update existing clothing(ID=1) tied to user(ID=1)
+### - NB! Update is currently based on clothing ID.
+PUT  http://localhost:8080/api/user/1/clothing/1  HTTP/1.1
+content-type: application/json
+
+{
+  "id": "1",
+  "name": "My Damn Shirt",
+  "type": "T_SHIRT",
+  "usable": "false",
+  "tags": {
+    "temperature" : "WARM",
+    "precipitationProtection" : "LIGHT_RAIN",
+    "waterResistance" : "NORMAL",
+    "windResistance" : "STORMY",
+    "bodySection": "TORSO_INNER"
+  }
+}
+
+
+### --- DELETE endpoints --- ###
+
+### Delete existing clothing(ID=1) tied to user(ID=1)
+### - NB! When using this to delete some other requests in this file might start failing.
+###   This is because the ID of 1 will not be reused upon creation of new clothing items.
+DELETE  http://localhost:8080/api/user/1/clothing/1  HTTP/1.1
+content-type: application/json
+
+
+
+
+### --- --- ENDPOINTS PORT CONNECTION --- --- ###
+
+
+### --- GET endpoints --- ###
+
+### Get all clothing of user(ID=1)
+GET http://localhost:8083/api/user/1/clothing
+
+### Get all clothing of user(ID=1) with WARM temperature tag
+GET http://localhost:8083/api/user/1/clothing?temperature=WARM
+### Get all clothing of user(ID=1) with LIGHT_RAIN precipitation tag
+GET http://localhost:8083/api/user/1/clothing?precipitationProtection=LIGHT_RAIN
+### Get all clothing of user(ID=1) with NORMAL water resistance tag
+GET http://localhost:8083/api/user/1/clothing?waterResistance=NORMAL
+### Get all clothing of user(ID=1) with STORMY wind resistance tag
+GET http://localhost:8083/api/user/1/clothing?windResistance=STORMY
+### Get all clothing of user(ID=1) with TORSO_INNER body section tag
+GET http://localhost:8083/api/user/1/clothing?bodySection=TORSO_INNER
+### Get all clothing of user(ID=1) with COLD temperature & LIGHT_RAIN precipitation tag
+GET http://localhost:8083/api/user/1/clothing?temperature=COLD&precipitationProtection=LIGHT_RAIN
+### Get all clothing of user(ID=1) with non-existant tag value (Bad request)
+GET http://localhost:8083/api/user/1/clothing?temperature=INSANE_IN_THE_MEMBRANE
+### - NB! Check io.coaton.clothing.model.ClothingTags for all possible tags and values
+
+### Get clothing(ID=1) of user (ID=1)
+GET http://localhost:8083/api/user/1/clothing/1
+
+
+
+### --- POST endpoints --- ###
+
+### Create new clothing piece tied to user(ID=1)
+POST  http://localhost:8083/api/user/1/clothing  HTTP/1.1
+content-type: application/json
+
+{
+  "name": "Fur Coat",
+  "type": "JACKET",
+  "usable": "true",
+  "tags": {
+    "temperature" : "COLD",
+    "precipitationProtection" : "SNOWFALL",
+    "waterResistance" : "NORMAL",
+    "windResistance" : "STORMY",
+    "bodySection": "TORSO_OUTER"
+  }
+}
+
+
+
+### --- PUT endpoints --- ###
+
+### Update existing clothing(ID=1) tied to user(ID=1)
+### - NB! Update is currently based on clothing ID.
+PUT  http://localhost:8083/api/user/1/clothing/1  HTTP/1.1
+content-type: application/json
+
+{
+  "id": "1",
+  "name": "My Damn Shirt",
+  "type": "T_SHIRT",
+  "usable": "false",
+  "tags": {
+    "temperature" : "WARM",
+    "precipitationProtection" : "LIGHT_RAIN",
+    "waterResistance" : "NORMAL",
+    "windResistance" : "STORMY",
+    "bodySection": "TORSO_INNER"
+  }
+}
+
+
+
+### --- DELETE endpoints --- ###
+
+### Delete existing clothing(ID=1) tied to user(ID=1)
+### - NB! When using this to delete some other requests in this file might start failing.
+###   This is because the ID of 1 will not be reused upon creation of new clothing items.
+DELETE  http://localhost:8083/api/user/1/clothing/1  HTTP/1.1
+content-type: application/json

@@ -1,0 +1,194 @@
+### --- --- ENDPOINTS THROUGH GATEWAY --- --- ###
+
+
+### --- GET endpoints --- ###
+
+### Get all activities
+GET http://localhost:8080/api/activity
+### Get all activities through gateway
+
+### Get all activities with OUTDOORS locale tag
+GET http://localhost:8080/api/activity?localeType=OUTDOORS
+### Get all activities with CALM exertion tag
+GET http://localhost:8080/api/activity?exertionLevel=CALM
+### Get all activities with SPORTS category tag
+GET http://localhost:8080/api/activity?category=SPORTS
+### Get all activites with minimum people tag
+GET http://localhost:8080/api/activity?minPeople=1
+### Get all activites with maximum people tag
+GET http://localhost:8080/api/activity?maxPeople=4
+### Get all activites with recommended people tag
+GET http://localhost:8080/api/activity?recommendedPeople=5
+### Get all activities with OUTDOORS locale tag *or* max people tag
+GET http://localhost:8080/api/activity?localeType=OUTDOORS&maxPeople=8
+### Get all activities in 1000 (km) range of a point
+GET http://localhost:8080/api/activity?lat=15&long=15&radius=1000
+### Get all activities in 50 (km) range of a point (should contain none)
+GET http://localhost:8080/api/activity?lat=15&long=15&radius=50
+### Get all activities in 1000 (km) range of a point with the wind tag CALM
+GET http://localhost:8080/api/activity?lat=15&long=15&radius=1000&wind=CALM
+### Get all activities with faulty distance data (Bad Request)
+GET http://localhost:8080/api/activity?lat=15&long=15
+### Get all activities with faulty distance data and correct weather data (Bad Request)
+GET http://localhost:8080/api/activity?lat=15&long=15&wind=CALM&temperature=WARM
+
+### Get activity(ID=1)
+GET http://localhost:8080/api/activity/1
+
+
+### --- POST endpoints --- ###
+
+### Create new activity
+POST  http://localhost:8080/api/activity  HTTP/1.1
+content-type: application/json
+
+{
+  "name": "Example activity",
+  "userId": 1,
+  "description": "Description of activity",
+  "latitude": 10.0,
+  "longitude": 10.0,
+  "startDateTime" : "2024-10-10 12:12:12",
+  "endDateTime" : "2024-11-11 13:13:13",
+  "tags": {
+    "localeType": "OUTDOORS",
+    "exertionLevel": "MODERATE",
+    "category": "SPORTS",
+    "temperature": "TEMPERATE",
+    "wind": "BREEZE",
+    "minPeople": 2,
+    "maxPeople": 4,
+    "recommendedPeople": 3
+  }
+}
+
+
+### --- PUT endpoints --- ###
+
+### Update existing activity(ID=1)
+PUT  http://localhost:8080/api/activity/1  HTTP/1.1
+content-type: application/json
+
+{
+  "id": 1,
+  "userId": 1,
+  "name": "Example changed activity",
+  "description": "Description of changed activity",
+  "latitude": 20.0,
+  "longitude": 20.0,
+  "startDateTime" : "2024-11-11 22:12:12",
+  "endDateTime" : "2024-12-12 23:13:13",
+  "tags": {
+    "localeType": "HYBRID",
+    "exertionLevel": "CALM",
+    "category": "FESTIVAL",
+    "temperature": "WARM",
+    "wind": "CALM",
+    "minPeople": 1,
+    "maxPeople": 8,
+    "recommendedPeople": 5
+  }
+}
+
+
+### --- DELETE endpoints --- ###
+
+### Delete existing activity(ID=1)
+### - NB! When using this to delete some other requests in this file might start failing.
+###   This is because the ID of 1 will not be reused upon creation of new activities.
+DELETE  http://localhost:8080/api/activity/1 HTTP/1.1
+content-type: application/json
+
+
+
+
+### --- --- ENDPOINTS PORT CONNECTION --- --- ###
+
+
+### --- GET endpoints --- ###
+
+### Get all activities
+GET http://localhost:8088/api/activity
+### Get all activities through gateway
+
+### Get all activities with OUTDOORS locale tag
+GET http://localhost:8088/api/activity?localeType=OUTDOORS
+### Get all activities with CALM exertion tag
+GET http://localhost:8088/api/activity?exertionLevel=CALM
+### Get all activities with SPORTS category tag
+GET http://localhost:8088/api/activity?category=SPORTS
+### Get all activites with minimum people tag
+GET http://localhost:8088/api/activity?minPeople=1
+### Get all activites with maximum people tag
+GET http://localhost:8088/api/activity?maxPeople=4
+### Get all activites with recommended people tag
+GET http://localhost:8088/api/activity?recommendedPeople=5
+### Get all activities with OUTDOORS locale tag *or* max people tag
+GET http://localhost:8088/api/activity?localeType=OUTDOORS&maxPeople=8
+
+### Get activity(ID=1)
+GET http://localhost:8088/api/activity/1
+
+
+### --- POST endpoints --- ###
+
+### Create new activity
+POST  http://localhost:8088/api/activity  HTTP/1.1
+content-type: application/json
+
+{
+  "name": "Example activity",
+  "userId": 1,
+  "description": "Description of activity",
+  "latitude": 10.0,
+  "longitude": 10.0,
+  "startDateTime" : "2024-10-10 12:12:12",
+  "endDateTime" : "2024-11-11 13:13:13",
+  "tags": {
+    "localeType": "OUTDOORS",
+    "exertionLevel": "MODERATE",
+    "category": "SPORTS",
+    "temperature": "TEMPERATE",
+    "wind": "BREEZE",
+    "minPeople": 2,
+    "maxPeople": 4,
+    "recommendedPeople": 3
+  }
+}
+
+
+### --- PUT endpoints --- ###
+
+### Update existing activity(ID=1)
+PUT  http://localhost:8088/api/activity/1  HTTP/1.1
+content-type: application/json
+
+{
+  "id": 1,
+  "userId": 1,
+  "name": "Example changed activity",
+  "description": "Description of changed activity",
+  "latitude": 20.0,
+  "longitude": 20.0,
+  "startDateTime" : "2024-11-11 22:12:12",
+  "endDateTime" : "2024-12-12 23:13:13",
+  "tags": {
+    "localeType": "HYBRID",
+    "exertionLevel": "CALM",
+    "category": "FESTIVAL",
+    "temperature": "WARM",
+    "wind": "CALM",
+    "minPeople": 1,
+    "maxPeople": 8,
+    "recommendedPeople": 5
+  }
+}
+
+
+### --- DELETE endpoints --- ###
+
+### Delete existing activity(ID=1)
+### - NB! When using this to delete some other requests in this file might start failing.
+###   This is because the ID of 1 will not be reused upon creation of new activities.
+DELETE  http://localhost:8088/api/activity/1 HTTP/1.1
+content-type: application/json
