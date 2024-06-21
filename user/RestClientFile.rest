@@ -1,0 +1,35 @@
+### Get all users
+GET http://localhost:8086/api/user
+
+### Add a new user
+
+POST  http://localhost:8086/api/user HTTP/1.1
+content-type: application/json
+
+{
+    "username": "phildeguzman22",
+    "email": "deguzmanphil22@ut.ee",
+    "name": "phil deguzman",
+    "password": "hahapassword"
+}
+
+### Get non-existing user
+GET http://localhost:8086/api/user/152
+
+### Get existing user
+GET http://localhost:8086/api/user/1
+
+### Update user
+PUT  http://localhost:8086/api/user/1 HTTP/1.1
+content-type: application/json
+
+{
+    "username": "phildeguzman",
+    "email": "deguzmanphil@ut.ee",
+    "name": "phil JULIUS deguzman",
+    "password": "hahapassword"
+}
+### Delete user
+DELETE http://localhost:8086/api/user/1
+
+GET http://localhost:8090/api/auth/authenticate

@@ -1,0 +1,9 @@
+### Get current weather by location
+GET http://localhost:8087/api/weather/current/lat=59.417&lon=24.711
+
+### Get a list of daily weather for 7 days
+GET http://localhost:8087/api/weather/daily/lat=59.417129776724856&lon=24.71145194604442
+
+### Get weather for time and location
+GET http://localhost:8087/api/weather?lat=59.417&lon=24.711&time=2024-05-12 13:00:00
+
