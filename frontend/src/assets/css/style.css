@@ -1,0 +1,122 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+
+.signin-container,
+.user-container,
+.inventory-container,
+.rec-activity-container,
+.rec-clothing-container{
+  max-width: 700px;
+  margin: 50px auto;
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; 
+}
+
+@media (max-width: 600px) {
+  .rec-activity-container, 
+  .rec-clothing-container {
+    flex-direction: column;
+  }
+}
+
+.signin-container, .user-container {
+  flex-direction: column;
+}
+
+
+.activity-displayer, .activity-finder,
+.clothing-displayer, .clothing-finder {
+  flex: 1; /* Each component takes half of the available space */
+  padding: 10px; /* Adds some space around each component */
+}
+
+input[type="text"],
+input[type="password"],
+input[type="number"],
+button {
+  width: 100%; /* Full width of the container */
+  padding: 8px;
+  margin: 10px 0;
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+input,
+select,
+button {
+  width: 100%; /* Full width of the container */
+  padding: 8px;
+  margin: 10px 0;
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+select {
+  cursor: pointer;
+}
+
+/* General padding and margins for better spacing */
+.inventory-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Creates three columns */
+  grid-gap: 20px; /* Space between rows and columns */
+  padding: 10px;
+}
+
+.inventory-add-container {
+  padding: 20px;
+  margin: auto;
+  display: grid;
+  flex-wrap: wrap;
+  justify-content: space-around; /* Improves spacing and alignment of items */
+}
+
+/* Smaller and less obtrusive buttons */
+button.small {
+  padding: 5px 10px;
+  font-size: 0.8em;
+}
+
+.clothing-item,
+.activity-item, 
+.inventory-item {
+  border: 1px solid #ccc;
+  padding: 10px;
+  width: 95%;
+  height: 95%;
+}
+
+.clothing-details {
+  margin-bottom: 10px;
+}
+
+.clothing-controls button {
+  padding: 5px 10px;
+  margin-right: 5px;
+  font-size: 0.8em; /* Smaller buttons */
+}
+
+.tagline {
+  margin-top: 20px;
+  margin-bottom: 20px;  /* Add bottom margin if necessary */
+  font-size: 14px;
+  text-align: center; 
+}
+
+
